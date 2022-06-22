@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Day 3 Hello Mother Father</title>
+    <script>
+        console.log('Here We go Again...')
+        if (console.log(''))
+            console.log("deneme")
+        let value = 0
+        let value2 = null
+        let value3 = undefined
+        let value4 = NaN
+        // undefined value is not returned func and when we declare a variable and if we do not assign a value
+        let value5
+        console.log(value5)
+
+        const PI = 3.14
+        let radius = 100
+        const areaOfCircle = PI * radius * radius
+        console.log(areaOfCircle)
+
+        console.log(1 == true) // true
+        console.log(1 === true) // false cause three equal wants also same type
+
+            //Pre-increment
+        let value6 = 0
+        console.log(++value6)
+        console.log(value6)
+            //Post-increment
+        console.log(value6++)
+        console.log(value6)
+            //Decrement
+        console.log(--value6)
+
+            //Ternary Operator
+        let isRaining = true
+        isRaining ? console.log('You need a rain coat.') : console.log('No need for a rain coat.')
+        isRaining = false
+        isRaining ? console.log('You need a rain coat.') : console.log('No need for a rain coat.')
+
+        //alert('Welcome Bro')
+        //prompt('required text', 'optional text')
+        let number = prompt('Enter a number', 'number goes here') // input with alert
+        console.log(number)
+            //confirm
+        const agree = confirm('Are you sure you like to delete? ') // displays a dialog box with a specified
+        //message, along with an OK and a Cancel button. İf you click the OK it gives true
+        console.log(agree)
+
+            //TIME
+        const now = new Date()
+        console.log(now)
+        console.log(now.getFullYear())
+        console.log(now.getMonth())
+        console.log(now.getDate())
+        console.log(now.getDay()) //it gives 0-6
+        console.log(now.getHours())
+        console.log(now.getMinutes())
+        console.log(now.getSeconds())
+        console.log(now.getTime()) // unix time. starts from january 1 1970
+        //
+        const allSeconds = Date.now() // another way to get the unix time
+        console.log(allSeconds)
+
+        const year = now.getFullYear()
+        const month = now.getMonth()
+        const date = now.getDate()
+        const hours = now.getHours()
+        const minutes = now.getMinutes()
+        console.log(`${date}/${month}/${year} ${hours}:${minutes}`)
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,19 @@
+.box {
+    width: 150px;
+    height: 150px;
+    border: 1px solid #FFF;
+    transition: all .5s;
+}
+.box.bigger {
+    width: 250px;
+    height: 250px;
+}
+.box.circle {
+    border-radius: 50%;
+}
+.box.move {
+    transform: translateX(300px);
+}
+.box.colored {
+    background: rebeccapurple;
+}

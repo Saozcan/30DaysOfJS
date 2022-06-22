@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello Mother Father</title>
+</head>
+<body>
+    <script>
+        let word = 'JavaScript'
+        word[0] = 'Y'
+        console.log(word)
+        let js = 'JavaScript'
+        let py = 'Python'
+        console.log(js == py)
+        let lightOn = true
+        let lightOff = false
+        console.log(lightOff == lightOn)
+        let number1 = 3
+        let number2 = 3
+        console.log(number1 == number2)
+        let nums = [1, 2, 3]
+        nums[0] = 10
+        console.log(nums[0])
+        nums[0] = 1
+        let numbers = [1, 2, 3]
+        console.log((nums == numbers)) //even if two non primitive data types have the same properties and values
+        // they are not strictly equal
+
+        let userOne = {
+            name: 'Ahmed',
+            role: 'teaching',
+            country: 'Finland'
+        }
+        let userTwo = {
+            name: 'Mehmed',
+            role: 'driver',
+            country: 'German'
+        }
+        console.log((userOne == userTwo)) // false again like before one
+
+        // do not compare arrays, functions, or objects.!!
+        // there are being compared by reference instead of value !!!
+        let numbs = nums
+        console.log((numbs == nums)) // gives true because same address
+
+            //NUMBERS
+        let age = 35
+        age = 45
+        console.log(age)
+        const PI1 = 3.14
+       //PI = 3.15 cant change cause of const type
+        console.log(PI1)
+            //MATH Object
+        const PI = Math.PI // you can get PI number using by Math operator
+        console.log((PI))
+        console.log((Math.round(PI))) // 3 to round values to the nearest number
+        console.log(Math.round(9.81)) // 10, nearest number
+        console.log(Math.floor(PI)) // 3 rounding down
+        console.log(Math.ceil(PI)) //4 rounding up !!!
+        console.log(Math.min(-5, 3, 20, -222)) // gives -5
+        console.log(Math.max(5, 3, 6, 22, 5)) // 22
+        const randNum = Math.random() // creates random number between 0 and 0.999999
+        console.log(randNum)
+        const randNum2 = Math.floor(Math.random() * 11) // creates random number between 0 and 10
+        console.log(randNum2)
+
+        //Absolute
+        console.log(Math.abs(-10))
+        //Square root
+        console.log(Math.sqrt(100))
+        //Power
+        console.log(Math.pow(3, 2)) // 9
+        //Logarithm
+        //Returns the natural logarithm with base E of x, Math.log(x)
+        console.log(Math.log(2)) // 0.693...
+        console.log(Math.log(10))
+        //Returns the natural logarithm of 2 and 10 respectively
+        console.log(Math.LN2)
+        console.log(Math.LN10)
+        //Trigonemetry
+        Math.sin(0)
+
+        let firstName = 'Ahmed'
+        let secondName = 'Sahin'
+        let job = 'SoftwareDeveloper'
+        let fullName = firstName + ' ' +secondName + ' ' + job;
+        console.log(fullName)
+
+            //Template Literals (Template Strings)
+        console.log(`The sum of 2 and 3 is 5`)
+        let a = 2
+        let b = 3
+        console.log(`The sum of ${a} and ${b} is ${a + b}`) // option + comma```
+        console.log(`${a} is greater than ${b}: ${a > b}`) // gives false
+
+            //STRING methods
+        console.log(firstName.length) // return lenght of the string
+        console.log(firstName.toUpperCase())
+        console.log(firstName.toLowerCase())
+        console.log(firstName.substr(2, 6)) //med, start third character with 6 characters
+        console.log(firstName.substring(2, 4)) //start third character to 5. character
+        console.log(firstName.includes('med')) // true
+        console.log(firstName.replace('med', 'ket')) //Ahket
+        console.log(firstName[0])
+        console.log(firstName.charAt(0)) // they are same probably
+        console.log(firstName.charCodeAt(0)) //returns the ascii number of the character
+        console.log(firstName.indexOf('D')) //if the substring exists in a string it returns the first position
+        // of the substring if does not exist it returns -1
+        console.log(firstName.lastIndexOf('Ah')) //takes a substring and if the substring exists in a string //
+        //it returns the last position of the substring if it does not exist it return -1
+        console.log(firstName.concat('Days', 'of', 'JavaScript')) // it takes many substring and joins them
+        console.log((firstName))
+        console.log(firstName.startsWith('Love')) // if it starts with that substring, returns true
+        console.log(firstName.endsWith('med')) // same
+        let string = 'I love JavaScript. If you do not love JavaScript what else can you love'
+        console.log(string.search('love')) // 2
+        console.log(string.search(/javascript/gi)) // 7
+
+            //Match
+        //let string = 'love'
+        let patternOne = /love/     // with out any flag
+        let patternTwo = /love/gi   // g-means to search in the whole text, i - case insensitive
+        let string1 = 'I love JavaScript. If you do not love JavaScript what else can you love.'
+        console.log(string1.match('love'))
+
+        let txt = 'In 2019, I ran 30 Days of Python. Now, in 2020 I am super exited to start this challenge'
+        let regEx = /\d+/
+
+        // d with escape character means d not a normal d instead acts a digit
+        // + means one or more digit numbers,
+        // if there is g after that it means global, search everywhere.
+
+        console.log(txt.match(regEx))  // ["2", "0", "1", "9", "3", "0", "2", "0", "2", "0"]
+        console.log(txt.match(/\d+/g)) // ["2019", "30", "2020"]
+
+        console.log('love'.repeat(10))
+
+            //Changing data type
+        //String to int
+        let num = '10'
+        let numInt = parseInt(num) // we can use Number(num), +num
+        console.log(numInt)
+
+        //String to float
+        // parseFloat(num) and Number(num), +num
+
+        //Float to int
+        let num1 = 9.81
+        let num1Int = parseInt(num)
+        console.log(num1Int)
+    </script>
+</body>
+</html>
