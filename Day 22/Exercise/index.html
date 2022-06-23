@@ -5,6 +5,30 @@
     <title></title>
 </head>
 <body style="background-color: rgb(200, 200, 200);">
-	<script type="module" src="index.js"></script>
+	<!--<script type="module" src="index.js"></script>-->
+	<style>
+		.q1 {
+			text-decoration: underline;
+		}
+		.q2 {
+			text-decoration:  none;
+		}
+	</style>
+	<script>
+		console.log("hello")
+		const tag = document.createElement('div')
+		tag.className = 'q1'
+		document.body.appendChild(tag)
+		const textTag = document.createTextNode('hello')
+		tag.appendChild(textTag)
+		//tag.style.textDecoration = 'underline'
+		const newTag = document.createElement('div')
+		const newTagText = document.createTextNode('baba')
+		newTag.appendChild(newTagText)
+		newTag.className = 'q2'
+		tag.appendChild(newTag)
+		//newTag.style.textDecoration = 'none'
+
+	</script>
 </body>
 </html>

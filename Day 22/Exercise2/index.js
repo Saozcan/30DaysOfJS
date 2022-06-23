@@ -98,8 +98,11 @@ function domCreate() {
 			countryDivTag.style.margin = '10px'
 			countryDivTag.style.width = '120px'
 			countryDivTag.style.height = '100px'
-			countryDivTag.style.display = 'table-cell';
 			countryDivTag.style.verticalAlign = 'middle'
+			//Text in to the middle
+			countryDivTag.style.alignItems = 'center'
+			countryDivTag.style.display = 'flex';
+			countryDivTag.style.justifyContent = 'center'
 			if (numb > newDatas.length - 1) {
 				break;
 			}

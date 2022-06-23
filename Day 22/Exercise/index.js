@@ -18,7 +18,7 @@
 //Append tags to body
 	document.body.appendChild(firstTag);
 	document.body.appendChild(secTag);
-	document.body.appendChild(thirdTag);
+	secTag.appendChild(thirdTag);
 	document.body.appendChild(divTag);
 	
 //Style firstTag
@@ -34,7 +34,7 @@
 	
 //Style thirdTag	
 	thirdTag.style.textAlign = 'center'
-	thirdTag.style.textDecoration = 'underline'
+	thirdTag.style.textDecoration = 'none'
 	thirdTag.style.fontWeight = 'normal'
 	thirdTag.style.margin = '0px'
 	//thirdTag.style.display = 'inline'
