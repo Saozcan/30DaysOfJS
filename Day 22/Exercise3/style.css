@@ -1,0 +1,5 @@
+
+@keyframes animation{
+	from{ height: 30px;}
+	to{ height: 100%;}
+}
