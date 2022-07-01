@@ -40,7 +40,7 @@
 
 //outset border
 	document.addEventListener('keydown', e => {
-		//console.log(e)
+		console.log(e)
 		innerTag.innerHTML = `${e.keyCode}`
 		secTag.innerHTML = `Press any keyboard key ${e.key}`
 		spanTag.innerHTML = e.key
@@ -56,7 +56,6 @@
 		innerTag.style.color = 'green'
 		innerTag.style.fontWeight = 'bold'
 	})
-
 
 
 
