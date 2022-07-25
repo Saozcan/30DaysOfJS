@@ -10,6 +10,13 @@ body {
 	letter-spacing: 10px;
 }
 
+.secDiv {
+	height: 100px;
+	background-color: red;
+	display: flex;
+	align-items: center;
+}
+
 .biggerDiv {
 	margin: 0 100px;
 }
@@ -28,6 +35,7 @@ body {
 	justify-content: center;
 	align-items: center;
 	text-align: center;
+	margin: 10px 20px;
 }
 
 .animation {
@@ -38,6 +46,7 @@ body {
 	position: relative;
 	animation-name: example;
 	animation-duration: 2s;
+	animation-iteration-count: infinite;
   }
   
   @keyframes example {
@@ -48,6 +57,12 @@ body {
 a:hover {
 	background-color: blueviolet;
 	font-size: 20px;
-	padding: 5px;
-	margin: 5px 15px;
+
+	animation-duration: 1s;
+	animation-name: boxanimetion;
+}
+
+@keyframes boxanimetion {
+	0% {font-size: 15px;}
+	99% {margin: 5px 10px; padding: 5px 10px;}
 }
