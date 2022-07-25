@@ -144,7 +144,6 @@ countries2.map(value => {
         bsTagImg.style.width = '80vh'
         bsTagImg.style.objectFit = 'cover'
         bsTagImg.style.clip = 'rect(10px 10px 10px 10px)'
-
     }
 
 
