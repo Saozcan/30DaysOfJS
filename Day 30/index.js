@@ -54,7 +54,7 @@ const makeBoxes = (data) => {
 		headerInCountry.style.color = '#f1a93c';
 
 
-		//imgDiv.src = countries_data[i].flag;
+		imgDiv.src = data[i].flag;
 		headerInCountry.innerHTML = data[i].name.toUpperCase();
 		liCapital.innerHTML = `Capital: ${(data[i].capital)}`;
 		liLanguages.innerHTML = `Languages: ${data[i].languages}`;
@@ -68,15 +68,82 @@ const makeBoxes = (data) => {
 	}
 }
 makeBoxes(countries_data);
+
+//input bar 
 const inputBar = document.getElementById('inputBar');
 let searchCountries = [];
+let searchValue = 'name';
 inputBar.addEventListener('input', e => {
 	searchCountries = [];
-	countries_data.forEach(element => {
-		if ((element.name.toUpperCase()).includes(e.target.value.toUpperCase())) {
-			searchCountries.push(element);
-		}
-	})
+	if (searchValue === 'name') {
+		countries_data.forEach(element => {
+			if ((element.name.toUpperCase()).includes(e.target.value.toUpperCase())) {
+				searchCountries.push(element);
+			}
+		})
+	}
+	if (searchValue === 'capital') {
+		countries_data.forEach(element => {
+			if (element.capital && (element.capital.toUpperCase()).includes(e.target.value.toUpperCase())) {
+				searchCountries.push(element);
+			}
+		})
+	}
+	if (searchValue === 'population') {
+		
+	}
 	console.log(searchCountries);
 	makeBoxes(searchCountries);
+})
+
+//buttons
+const nameButton = document.getElementById('nameButton');
+const capitalButton = document.getElementById('capitalButton');
+const populationButton = document.getElementById('populationButton');
+let checkFirstName = 0;
+let checkFirstCapital = 0;
+let checkFirstPopulation = 0;
+nameButton.addEventListener('click', e => {
+	if (checkFirstName === 0) {
+		nameButton.innerHTML = `NAME <i class='bx bx-up-arrow-alt' ></i>`;
+		checkFirstName = 1;
+		capitalButton.innerHTML = 'CAPITAL';
+		populationButton.innerHTML = 'POPULATION';
+	}
+	else {
+		nameButton.innerHTML = `NAME <i class='bx bx-down-arrow-alt' ></i>`;
+		checkFirstName = 0;
+		capitalButton.innerHTML = 'CAPITAL';
+		populationButton.innerHTML = 'POPULATION';
+	}
+	searchValue = 'name';
+})
+capitalButton.addEventListener('click', e => {
+	if (checkFirstCapital === 0) {
+		capitalButton.innerHTML = `CAPITAL <i class='bx bx-up-arrow-alt' ></i>`;
+		checkFirstCapital = 1;
+		nameButton.innerHTML = 'NAME';
+		populationButton.innerHTML = 'POPULATION';
+	}
+	else {
+		capitalButton.innerHTML = `CAPITAL <i class='bx bx-down-arrow-alt' ></i>`;
+		checkFirstCapital = 0;
+		nameButton.innerHTML = 'NAME';
+		populationButton.innerHTML = 'POPULATION';
+	}
+	searchValue = 'capital';
+})
+populationButton.addEventListener('click', e => {
+	if (checkFirstPopulation === 0) {
+		populationButton.innerHTML = `POPULATION <i class='bx bx-up-arrow-alt' ></i>`;
+		checkFirstPopulation = 1;
+		nameButton.innerHTML = 'NAME';
+		capitalButton.innerHTML = 'CAPITAL';
+	}
+	else {
+		populationButton.innerHTML = `POPULATION <i class='bx bx-down-arrow-alt' ></i>`;
+		checkFirstPopulation = 0;
+		nameButton.innerHTML = 'NAME';
+		capitalButton.innerHTML = 'CAPITAL';
+	}
 })

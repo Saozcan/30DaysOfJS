@@ -64,7 +64,7 @@ export const countries_data = [
 					"Catalan"
 			],
 			"population": 77265,
-			"flag": "https://flagcdn.com/ad.svg",
+			"flag": "https://flagcdn.com/tr.svg",
 			"region": "Europe",
 			"area": 468
 	},
