@@ -40,7 +40,7 @@ const makeBoxes = (data) => {
 		ulList.style.marginTop = '15px';
 
 		countriesFirDiv.style.margin = '10px';
-		countriesFirDiv.style.height = '350px';
+		countriesFirDiv.style.height = '400px';
 		countriesFirDiv.style.width = '250px';
 		countriesFirDiv.style.display = 'flex';
 		countriesFirDiv.style.justifyContent = 'flex-start';
@@ -48,6 +48,7 @@ const makeBoxes = (data) => {
 		countriesFirDiv.style.flexDirection = 'column';
 		countriesFirDiv.style.margin = '20px';
 		countriesFirDiv.style.backgroundColor = '#f9f6e9';
+		countriesFirDiv.style.borderRadius = '20px';
 
 		headerInCountry.style.width = '100px';
 		headerInCountry.style.textAlign = 'center';
@@ -66,13 +67,82 @@ const makeBoxes = (data) => {
 		imgDiv.style.alignContent = 'center';
 		imgDiv.style.margin = '20px';
 	}
+
+//graph
+
+let totalPopulation = 0;
+const sortCountriesArray = searchCountries.sort(function(a, b){return b.population - a.population});
+countries_data.forEach(element => {
+	totalPopulation += element.population;
+});
+
+
+const graphDiv = document.getElementById('graph');
+graphDiv.style.display = 'flex';
+graphDiv.style.flexDirection = 'column';
+graphDiv.style.alignItems = 'center';
+graphDiv.style.marginTop = '20px';
+graphDiv.innerHTML = '';
+for (let i = 0; i < 10; i++) {
+	const bigGraphDiv = document.createElement('div');
+	const firstGraphDiv = document.createElement('div');
+	const secGraphDiv = document.createElement('div');
+	const thirdGraphDiv = document.createElement('div');
+	const inSecGraphDiv = document.createElement('div');
+
+	graphDiv.appendChild(bigGraphDiv);
+	bigGraphDiv.appendChild(firstGraphDiv);
+	bigGraphDiv.appendChild(secGraphDiv);
+	bigGraphDiv.appendChild(thirdGraphDiv);
+
+	secGraphDiv.appendChild(inSecGraphDiv);
+
+	bigGraphDiv.style.display = 'flex';
+	secGraphDiv.style.display = 'flex';
+	secGraphDiv.style.width = '500px';
+
+	if (i === 0){
+		bigGraphDiv.style.marginBottom = '10px';
+		firstGraphDiv.innerHTML = 'World';
+		firstGraphDiv.style.display = 'flex';
+		firstGraphDiv.style.alignItems = 'center';
+
+		firstGraphDiv.style.width = '150px';
+		inSecGraphDiv.style.width = '500px';
+		inSecGraphDiv.style.height = '30px';
+
+		inSecGraphDiv.style.backgroundColor = '#f1a93c';
+		thirdGraphDiv.innerHTML = `${totalPopulation.toLocaleString()}`;
+		thirdGraphDiv.style.marginLeft = '20px';
+		thirdGraphDiv.style.width = '130px';
+		thirdGraphDiv.style.display = 'flex';
+		thirdGraphDiv.style.alignItems = 'center';
+		continue ;
+	}
+	bigGraphDiv.style.marginBottom = '10px';
+	firstGraphDiv.innerHTML = sortCountriesArray[i - 1].name;
+	firstGraphDiv.style.display = 'flex';
+	firstGraphDiv.style.alignItems = 'center';
+
+	firstGraphDiv.style.width = '150px';
+	inSecGraphDiv.style.width = `${(sortCountriesArray[i - 1].population / totalPopulation) * 500}px`;
+	inSecGraphDiv.style.height = '30px';
+
+	inSecGraphDiv.style.backgroundColor = '#f1a93c';
+	thirdGraphDiv.innerHTML = sortCountriesArray[i - 1].population.toLocaleString();
+	thirdGraphDiv.style.marginLeft = '20px';
+	thirdGraphDiv.style.width = '130px';
+	thirdGraphDiv.style.display = 'flex';
+	thirdGraphDiv.style.alignItems = 'center';
 }
-makeBoxes(countries_data);
+
+}
 
 //input bar 
 const inputBar = document.getElementById('inputBar');
-let searchCountries = [];
+let searchCountries = countries_data;
 let searchValue = 'name';
+makeBoxes(searchCountries);
 inputBar.addEventListener('input', e => {
 	searchCountries = [];
 	if (searchValue === 'name') {
@@ -89,10 +159,7 @@ inputBar.addEventListener('input', e => {
 			}
 		})
 	}
-	if (searchValue === 'population') {
-		
-	}
-	console.log(searchCountries);
+	document.getElementById('inputDetail').innerHTML = `${searchCountries.length} countries satisfied the search criteria`;
 	makeBoxes(searchCountries);
 })
 
@@ -109,14 +176,29 @@ nameButton.addEventListener('click', e => {
 		checkFirstName = 1;
 		capitalButton.innerHTML = 'CAPITAL';
 		populationButton.innerHTML = 'POPULATION';
+		searchCountries.sort(function(a, b){
+			let x = a.name.toLowerCase();
+			let y = b.name.toLowerCase();
+			if (x < y) {return -1};
+			if (x > y) {return 1};
+			return (0);
+		})
+		makeBoxes(searchCountries);
 	}
 	else {
 		nameButton.innerHTML = `NAME <i class='bx bx-down-arrow-alt' ></i>`;
 		checkFirstName = 0;
 		capitalButton.innerHTML = 'CAPITAL';
 		populationButton.innerHTML = 'POPULATION';
+		searchCountries.sort(function(a, b){
+			let x = a.name.toLowerCase();
+			let y = b.name.toLowerCase();
+			if (x < y) {return 1};
+			if (x > y) {return -1};
+			return (0);
+		})
+		makeBoxes(searchCountries);
 	}
-	searchValue = 'name';
 })
 capitalButton.addEventListener('click', e => {
 	if (checkFirstCapital === 0) {
@@ -124,14 +206,31 @@ capitalButton.addEventListener('click', e => {
 		checkFirstCapital = 1;
 		nameButton.innerHTML = 'NAME';
 		populationButton.innerHTML = 'POPULATION';
+		searchCountries.sort(function(a, b){
+			if (a.capital && b.capital) {
+				let x = a.capital.toLowerCase();
+				let y = b.capital.toLowerCase();
+				if (x < y) {return -1;}
+				if (x > y) {return 1;}
+			}
+			return 0;})
+		makeBoxes(searchCountries);
 	}
 	else {
 		capitalButton.innerHTML = `CAPITAL <i class='bx bx-down-arrow-alt' ></i>`;
 		checkFirstCapital = 0;
 		nameButton.innerHTML = 'NAME';
 		populationButton.innerHTML = 'POPULATION';
+		searchCountries.sort(function(a, b){
+			if (a.capital && b.capital) {
+				let x = a.capital.toLowerCase();
+				let y = b.capital.toLowerCase();
+				if (x < y) {return 1;}
+				if (x > y) {return -1;}
+			}
+			return 0;})
+		makeBoxes(searchCountries);
 	}
-	searchValue = 'capital';
 })
 populationButton.addEventListener('click', e => {
 	if (checkFirstPopulation === 0) {
@@ -139,11 +238,18 @@ populationButton.addEventListener('click', e => {
 		checkFirstPopulation = 1;
 		nameButton.innerHTML = 'NAME';
 		capitalButton.innerHTML = 'CAPITAL';
+		searchCountries.sort(function(a, b){return a.population - b.population});
+		makeBoxes(searchCountries);
 	}
 	else {
 		populationButton.innerHTML = `POPULATION <i class='bx bx-down-arrow-alt' ></i>`;
 		checkFirstPopulation = 0;
 		nameButton.innerHTML = 'NAME';
 		capitalButton.innerHTML = 'CAPITAL';
+		searchCountries.sort(function(a, b){return b.population - a.population});
+		makeBoxes(searchCountries);
 	}
 })
+
+
+

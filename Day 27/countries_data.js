@@ -13,7 +13,7 @@ export const countries_data = [
 			"area": 652230
 	},
 	{
-			"name": "Åland Islands",
+			"name": "Aland Islands",
 			"capital": "Mariehamn",
 			"languages": [
 					"Swedish"

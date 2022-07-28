@@ -1,6 +1,6 @@
 body {
 	background-color: #EDEADE;
-	font-family: Arial, Helvetica, sans-serif;
+	font-family: "Gill Sans", sans-serif;
 }
 
 h1 {
@@ -68,4 +68,9 @@ button {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-around;
+}
+
+#inputDetail {
+	color: #f1a93c;
+	font-family: cursive;
 }
